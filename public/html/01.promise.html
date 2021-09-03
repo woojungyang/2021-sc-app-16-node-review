@@ -1,0 +1,71 @@
+<script>
+	function getUser(cb) {
+		return new Promise(function(resolve, reject) {
+			setTimeout(function() {
+				resolve('booldook')
+			}, 0)
+		})
+	}
+
+/* 	getUser(function(user) {
+		console.log(user);
+	}); */
+
+	getUser()
+	.then(function(user) {
+		return user + ' 입니다.'
+	})
+	.then(function(str) {
+		return "당신은 " + str;
+	})
+	.then(function(str) {
+		console.log(str)
+	})
+
+
+
+	function first() {
+		setTimeout(function() {
+			second();
+		}, 0)
+		console.log('FIRST');
+	}
+	function second() {
+		third();
+		console.log('SECOND');
+	}
+	function third() {
+		console.log('THIRD');
+	}
+	
+	function init() {
+		first();
+		console.log('INIT')
+	}
+
+	init();
+
+
+
+	function getData() {
+		return new Promise(function(resolve, reject) {
+			resolve('booldook')
+		})
+	}
+
+	function getIsData(name) {
+		return new Promise(function(resolve, reject) {
+			resolve(name + ' 입니다.')
+		})
+	}
+
+	getData()
+	.then(function(r) {
+		return new Promise((resolve, reject) => {
+			resolve('aa')
+		})
+	})
+	.then(function(r2) {
+		console.log(r2);
+	})
+</script>
